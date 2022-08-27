@@ -1,0 +1,34 @@
+version: "3.4"
+services:
+
+    # PHP service
+    app:
+        build: ./docker/php
+        container_name: page-scraper-php-app
+        working_dir: /var/www/
+        volumes:
+            - ./:/var/www
+            - ./profiler:/tmp/xdebug
+            - ./docker/php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+        environment:
+            XDEBUG_CONFIG: client_host=127.0.0.1
+            PHP_IDE_CONFIG: serverName=calc-api
+            XDEBUG_SESSION: calc-api
+        networks:
+            - page-scraper-app-network
+
+    # Nginx service
+    nginx:
+        image: nginx:alpine
+        container_name: page-scraper-php-nginx
+        ports:
+            - "8000:80"
+        volumes:
+            - ./:/var/www
+            - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+        networks:
+            - page-scraper-app-network
+
+networks:
+    page-scraper-app-network:
+        driver: bridge
