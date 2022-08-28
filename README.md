@@ -16,14 +16,19 @@ docker-compose build
 docker-compose up -d
 ```
 
-- To run tests
-
-```bash
-docker-compose run app bin/phpunit
-```
-
 - To shut down your Docker Compose environment and remove all of its containers, networks, and volumes, run:
 
 ```bash
 docker-compose down
+```
+
+- To run page scraper command
+```bash
+docker-compose run app bin/console app:scrape-page
+```
+
+- To run tests
+
+```bash
+docker-compose run app bin/phpunit
 ```

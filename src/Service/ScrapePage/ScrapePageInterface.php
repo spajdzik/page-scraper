@@ -4,7 +4,7 @@ namespace App\Service\ScrapePage;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-interface ScrapePageServiceInterface
+interface ScrapePageInterface
 {
     public function scrape(): JsonResponse;
 }

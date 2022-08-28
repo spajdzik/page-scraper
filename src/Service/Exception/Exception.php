@@ -10,7 +10,7 @@ class Exception extends HttpException
 
     public function __construct(ExceptionData $exceptionData)
     {
-        parent::__construct($exceptionData->getStatusCode(), $exceptionData->getType());
+        parent::__construct($exceptionData->getStatusCode(), $exceptionData->getMessage());
 
         $this->exceptionData = $exceptionData;
     }

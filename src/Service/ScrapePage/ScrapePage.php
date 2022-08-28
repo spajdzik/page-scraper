@@ -2,7 +2,7 @@
 
 namespace App\Service\ScrapePage;
 
-use App\Service\PageCrawler\PageCrawlerServiceInterface;
+use App\Service\PageCrawler\PageCrawlerInterface;
 use App\Service\PageDownloader\PageDownloaderInterface;
 use App\Service\Serializer\DTOSerializer;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -10,13 +10,13 @@ use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
 
-class ScrapePageService implements ScrapePageServiceInterface
+class ScrapePage implements ScrapePageInterface
 {
     public function __construct(
-        private readonly string $pageScrapeUrl,
+        private readonly string                  $pageScrapeUrl,
         private readonly PageDownloaderInterface $pageDownloader,
-        private readonly PageCrawlerServiceInterface $pageCrawlerService,
-        private readonly DTOSerializer $serializer
+        private readonly PageCrawlerInterface    $pageCrawlerService,
+        private readonly DTOSerializer           $serializer
     ) { }
 
     /**
@@ -32,6 +32,6 @@ class ScrapePageService implements ScrapePageServiceInterface
 
         $content = $this->serializer->serialize($packages);
 
-        return new JsonResponse($content, json: true);
+        return new JsonResponse(data: $content, json: true);
     }
 }

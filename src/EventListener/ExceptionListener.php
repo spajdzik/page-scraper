@@ -2,8 +2,8 @@
 
 namespace App\EventListener;
 
-use App\Service\Exception;
-use App\Service\ExceptionData;
+use App\Service\Exception\Exception;
+use App\Service\Exception\ExceptionData;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;

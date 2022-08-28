@@ -42,7 +42,7 @@ class Package
     }
 
     /**
-     * @param float $price
+     * @param string $price
      */
     public function setPrice(string $price): void
     {
@@ -50,7 +50,7 @@ class Package
     }
 
     /**
-     * @return float
+     * @return string
      */
     public function getPrice(): string
     {

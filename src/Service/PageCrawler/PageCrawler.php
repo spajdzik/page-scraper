@@ -5,7 +5,7 @@ namespace App\Service\PageCrawler;
 use App\Helper\CrawlerHelper\CrawlerHelper;
 use Symfony\Component\DomCrawler\Crawler;
 
-class PageCrawlerService implements PageCrawlerServiceInterface
+class PageCrawler implements PageCrawlerInterface
 {
     public function crawl(string $html): array
     {

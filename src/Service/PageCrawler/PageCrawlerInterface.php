@@ -2,7 +2,7 @@
 
 namespace App\Service\PageCrawler;
 
-interface PageCrawlerServiceInterface
+interface PageCrawlerInterface
 {
     public function crawl(string $html): array;
 }
