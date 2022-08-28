@@ -24,7 +24,7 @@ class ScrapePageCommand extends Command
     {
         $result = $this->scrapePageService->scrape();
 
-        $output->write($result);
+        $output->write($result->getContent());
 
         if (empty($result)) {
             return Command::FAILURE;

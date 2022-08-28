@@ -9,6 +9,8 @@ class ServiceTestCase extends WebTestCase
 {
     protected ContainerInterface $container;
 
+    protected const pageScrapeUrl = 'https://wltest.dns-systems.net/';
+
     protected function setUp(): void
     {
         parent::setUp();
